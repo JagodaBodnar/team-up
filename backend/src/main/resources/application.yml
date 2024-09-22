@@ -19,7 +19,7 @@ spring:
   config:
     import: optional:secret.yml
   main:
-    allow-circular-references: true
+    banner-mode: off
 logging:
   level:
     org:
