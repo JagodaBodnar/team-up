@@ -4,9 +4,9 @@ services:
     image: 'postgres:15'
     container_name: "team_up_db"
     environment:
-      - POSTGRES_USER=teamup
-      - POSTGRES_PASSWORD=secret
-      - POSTGRES_DB=teamup
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
     volumes:
       - ./data/pgdata:/var/postgressql/data
     ports:
