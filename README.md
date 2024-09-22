@@ -18,3 +18,11 @@ or create your own group.
 If you are group owner you can add or remove people from the list.
 If you join group you need to wait for group's admin approval.
 
+
+### Frontend set up
+
+- npm i - install dependencies
+- npm run dev - start frontend
+- state is hold in slices in the store folder
+
+
