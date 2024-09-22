@@ -9,13 +9,16 @@ const App = () => {
   const handleToggleActive = () => {
     dispatch(setActive(!active))
   }
+  const handleChange =()=>{
+      dispatch(setActive(!active))
+  }
 
   return (
     <div>
       Team up.
       <div className="app-active-checkbox">
         <p>Is active</p>
-        <input type="checkbox" checked={active}/>
+        <input type="checkbox" checked={active} onChange={handleChange}/>
       </div>
       <button onClick={handleToggleActive}>Toggle active</button>
     </div>
