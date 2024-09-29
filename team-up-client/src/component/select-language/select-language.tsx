@@ -43,6 +43,7 @@ const Option = styled.button<{$active: boolean}>`
     
     &:hover {
         transform: scale(1.1,1.1);
+        cursor: pointer;
     }
 
     &:hover::after {
