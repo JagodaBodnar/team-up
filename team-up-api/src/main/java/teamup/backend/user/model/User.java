@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import teamup.backend.message.model.Message;
+import teamup.backend.conversation.model.Conversation;
 import teamup.backend.team.model.Team;
 
 import java.util.ArrayList;
@@ -30,11 +30,11 @@ public class User {
     private String email;
 
     @OneToMany(mappedBy = "createdBy")
-    private List<Team> team = new ArrayList<>();
+    private List<Team> teams = new ArrayList<Team>();
 
     @ManyToMany
-    @JoinTable(name = "tu_user_message",
+    @JoinTable(name = "tu_user_conversation",
             joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "message_id")})
-    private List<Message> listOfMessages = new ArrayList<>();
+            inverseJoinColumns = {@JoinColumn(name = "conversation_id")})
+    private List<Conversation> listOfConversations = new ArrayList<>();
 }

@@ -1,21 +1,18 @@
-package teamup.backend.description.model;
+package teamup.backend.sport.model;
 
 import jakarta.persistence.*;
 import teamup.backend.team.model.Team;
 
-
 import java.util.UUID;
 
 @Entity
-public class Description {
+public class Sport {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private String description;
+    private long code;
+    private String icon;
 
-    private String rules;
-    private float payment;
-
-    @OneToOne(mappedBy = "description")
+    @OneToOne(mappedBy="sport")
     private Team team;
 }

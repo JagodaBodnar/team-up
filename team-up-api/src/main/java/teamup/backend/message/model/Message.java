@@ -1,9 +1,9 @@
 package teamup.backend.message.model;
 
 import jakarta.persistence.*;
-import teamup.backend.user.model.User;
+import teamup.backend.conversation.model.Conversation;
 
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -13,7 +13,9 @@ public class Message {
     private UUID id;
 
     private String text;
+    private LocalDateTime dateTime;
 
-    @ManyToMany(mappedBy = "listOfMessages")
-    private List<User> user;
+    @ManyToOne
+    @JoinColumn(name="listOfMessages")
+    private Conversation conversation;
 }
