@@ -40,9 +40,8 @@ public class Team {
     @JoinColumn(name = "team_id", referencedColumnName = "id")
     private Details details;
 
-    @OneToOne
-    @JoinColumn(name = "sport")
-    private Sport sport;
+    @OneToMany(mappedBy = "team")
+    private List<Sport> listOfSports;
 
     @ManyToMany
     @JoinTable(name = "tu_team_user",

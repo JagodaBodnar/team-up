@@ -1,6 +1,7 @@
 package teamup.backend.message.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import teamup.backend.conversation.model.Conversation;
 
 import java.time.LocalDateTime;
@@ -12,8 +13,9 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String text;
-    private LocalDateTime dateTime;
+    @Size(max=1000)
+    private String content;
+    private LocalDateTime sendDate;
 
     @ManyToOne
     @JoinColumn(name="listOfMessages")

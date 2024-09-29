@@ -17,6 +17,7 @@ public class Location {
 
     private String street;
     private String city;
+    private String country;
     private String location_name;
 
     @OneToMany(mappedBy = "location")

@@ -10,9 +10,12 @@ public class Sport {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
-    private long code;
+
+    @Enumerated(EnumType.STRING)
+    private SportCode code;
     private String icon;
 
-    @OneToOne(mappedBy="sport")
+    @ManyToOne
+    @JoinColumn(name="sport_id")
     private Team team;
 }
