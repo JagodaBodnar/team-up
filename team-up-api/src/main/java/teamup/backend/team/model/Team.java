@@ -3,7 +3,9 @@ package teamup.backend.team.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import teamup.backend.description.model.Description;
+import teamup.backend.location.model.Location;
+import teamup.backend.sport.model.Sport;
+import teamup.backend.team.details.model.Details;
 import teamup.backend.user.model.User;
 
 import java.time.LocalDateTime;
@@ -22,10 +24,9 @@ public class Team {
 
     private int teamSize;
 
-    @Enumerated(EnumType.STRING)
-    private Sport sportCategory;
-
-    private String location;
+    @ManyToOne
+    @JoinColumn(name="location_id")
+    private Location location;
 
     private LocalDateTime dateTime;
 
@@ -37,7 +38,10 @@ public class Team {
 
     @OneToOne
     @JoinColumn(name = "team_id", referencedColumnName = "id")
-    private Description description;
+    private Details details;
+
+    @OneToMany(mappedBy = "team")
+    private List<Sport> listOfSports;
 
     @ManyToMany
     @JoinTable(name = "tu_team_user",

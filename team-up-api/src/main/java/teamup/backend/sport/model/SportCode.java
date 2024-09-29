@@ -1,6 +1,6 @@
-package teamup.backend.team.model;
+package teamup.backend.sport.model;
 
-public enum Sport {
+public enum SportCode {
     FOOTBALL,
     VOLLEYBALL,
     BASKETBALL,

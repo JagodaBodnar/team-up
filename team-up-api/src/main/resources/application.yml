@@ -20,8 +20,3 @@ spring:
     import: optional:secret.yml
   main:
     banner-mode: off
-logging:
-  level:
-    org:
-      springframework:
-        security: TRACE

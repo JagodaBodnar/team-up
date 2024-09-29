@@ -1,9 +1,10 @@
 package teamup.backend.message.model;
 
 import jakarta.persistence.*;
-import teamup.backend.user.model.User;
+import jakarta.validation.constraints.Size;
+import teamup.backend.conversation.model.Conversation;
 
-import java.util.List;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -12,8 +13,11 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String text;
+    @Size(max=1000)
+    private String content;
+    private LocalDateTime sendDate;
 
-    @ManyToMany(mappedBy = "listOfMessages")
-    private List<User> user;
+    @ManyToOne
+    @JoinColumn(name="listOfMessages")
+    private Conversation conversation;
 }
