@@ -1,3 +1,4 @@
+@import url('non.geist');
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -7,9 +8,14 @@
     margin: 0;
 }
 
+html {
+    font-size: 10px;
+}
+
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
+    font-family: 'Geist Variable', serif;
 }
 
 img, picture, video, canvas, svg {
