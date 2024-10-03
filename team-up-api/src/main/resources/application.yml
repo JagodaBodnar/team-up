@@ -16,6 +16,7 @@ spring:
     init:
       platform: postgresql
       mode: always
+      data-locations: classpath:data.sql
   config:
     import: optional:secret.yml
   main:
