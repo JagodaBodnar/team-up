@@ -25,7 +25,6 @@ public class SportRepositoryTest {
     @Test
     void shouldReturnListOfSports() {
         var actualResult = sportRepository.findAll();
-        System.out.println("actualResult = " + actualResult);
         assertEquals(1, actualResult.size());
         assertEquals(SportCode.VOLLEYBALL, actualResult.getFirst().getCode());
     }
