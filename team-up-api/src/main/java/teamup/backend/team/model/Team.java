@@ -40,7 +40,9 @@ public class Team {
     @JoinColumn(name = "team_id", referencedColumnName = "id")
     private Details details;
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany(cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JoinColumn(name = "team_id")
     private List<Sport> listOfSports;
 
     @ManyToMany

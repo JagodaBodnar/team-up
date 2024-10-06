@@ -1,7 +1,9 @@
 package teamup.backend.location.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import teamup.backend.team.model.Team;
 
 import java.util.ArrayList;
@@ -10,6 +12,8 @@ import java.util.UUID;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

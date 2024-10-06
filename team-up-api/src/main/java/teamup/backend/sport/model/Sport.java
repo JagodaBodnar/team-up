@@ -1,11 +1,17 @@
 package teamup.backend.sport.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import teamup.backend.team.model.Team;
 
 import java.util.UUID;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Sport {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -14,8 +20,4 @@ public class Sport {
     @Enumerated(EnumType.STRING)
     private SportCode code;
     private String icon;
-
-    @ManyToOne
-    @JoinColumn(name="sport_id")
-    private Team team;
 }
