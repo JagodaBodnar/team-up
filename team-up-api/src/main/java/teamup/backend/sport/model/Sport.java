@@ -20,8 +20,4 @@ public class Sport {
     @Enumerated(EnumType.STRING)
     private SportCode code;
     private String icon;
-
-    @ManyToOne
-    @JoinColumn(name="team_id")
-    private Team team;
 }
