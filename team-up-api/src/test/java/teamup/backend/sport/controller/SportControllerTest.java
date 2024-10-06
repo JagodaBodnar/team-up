@@ -23,7 +23,7 @@ class SportControllerTest {
     SportService sportService;
 
     @Test
-    @DisplayName("/api/sports")
+    @DisplayName("findAll() returns list of 3 sports.")
     public void whenFindAllSports_thenReturnListOf3Sports() throws Exception {
         Mockito.when(sportService.getAllSports()).thenReturn(MockedSportController.createMockedListOfSports());
         mockMvc.perform(get("/api/sports"))
