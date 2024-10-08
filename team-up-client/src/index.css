@@ -8,14 +8,11 @@
     margin: 0;
 }
 
-html {
-    font-size: 10px;
-}
-
 body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     font-family: 'Geist Variable', serif;
+    background: linear-gradient(135deg, #FFFEF0, #FDFAD9);
 }
 
 img, picture, video, canvas, svg {

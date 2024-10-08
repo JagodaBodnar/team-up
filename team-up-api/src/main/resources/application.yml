@@ -21,3 +21,13 @@ spring:
     import: optional:secret.yml
   main:
     banner-mode: off
+
+cors:
+  allowed-origins:
+    - http://localhost:5173
+    - http://localhost:5173/
+  allowed-methods:
+    - GET
+    - POST
+  allow-credentials: true
+

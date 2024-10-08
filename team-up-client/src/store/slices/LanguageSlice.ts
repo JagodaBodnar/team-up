@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {Language} from "../../component/select-language/select-language.tsx";
-import {LANGUAGES} from "../../component/select-language/data.ts";
+import {Language} from "../../components/select-language/select-language.tsx";
+import {LANGUAGES} from "../../components/select-language/data.ts";
 
 interface LanguageState {
     selectedLanguage: Language
