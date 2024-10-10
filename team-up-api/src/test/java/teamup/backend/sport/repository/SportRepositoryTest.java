@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.jdbc.Sql;
 import teamup.backend.sport.model.Sport;
 import teamup.backend.sport.model.SportCode;
 
@@ -25,6 +26,7 @@ public class SportRepositoryTest {
     }
 
     @Test
+    @Sql("/test-data.sql")
     void shouldReturnListOfSports() {
         var actualResult = sportRepository.findAll();
         assertEquals(1, actualResult.size());
