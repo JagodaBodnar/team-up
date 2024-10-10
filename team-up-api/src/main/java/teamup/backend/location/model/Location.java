@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import teamup.backend.team.model.Team;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,9 +22,8 @@ public class Location {
     private UUID id;
 
     private String street;
-    private String city;
-    private String country;
-    private String location_name;
+
+    private String name;
 
     @OneToMany(mappedBy = "location")
     private List<Team> listOfTeams = new ArrayList<Team>();
