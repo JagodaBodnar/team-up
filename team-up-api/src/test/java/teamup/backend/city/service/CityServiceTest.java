@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.SqlGroup;
 import teamup.backend.city.MockedCity;
 import teamup.backend.city.repository.CityRepository;
 
@@ -17,6 +19,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @ActiveProfiles("test")
+@SqlGroup({
+        @Sql(scripts = "/test-data-clear.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD),
+        @Sql(scripts = "/test-data-city.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+})
 public class CityServiceTest {
     @Autowired
     private CityService cityService;

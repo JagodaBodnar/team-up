@@ -1,8 +1,3 @@
-DELETE FROM city;
-DELETE FROM city_city_names;
-DELETE FROM location;
-DELETE FROM city_locations;
-
 INSERT INTO city(id, country)
 VALUES ('12d96e44-a623-4e7e-aced-25422bbc0938', 'PL'),
        ('ea139adb-2c5e-428b-bb27-7f9d1265dfdc', 'PL'),

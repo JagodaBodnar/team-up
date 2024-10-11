@@ -1,7 +1,3 @@
-DELETE FROM tu_team;
-DELETE FROM tu_user;
-DELETE FROM location;
-
 INSERT INTO tu_team(id,date_time, open_group, team_size,created_by,team_id, location_id)
 values('ab09d389-ff36-43ed-8b2b-4892438e46af', null, true,10, null, null, null);
 
