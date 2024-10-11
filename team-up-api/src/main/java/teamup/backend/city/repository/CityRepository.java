@@ -10,6 +10,6 @@ import java.util.UUID;
 
 @Repository
 public interface CityRepository extends JpaRepository<City, UUID> {
-    @Query("SELECT distinct l from City l JOIN l.cityNames t WHERE VALUE(t) LIKE %:city%")
+    @Query("SELECT distinct c from City c JOIN c.cityNames t WHERE VALUE(t) LIKE %:city%")
     List<City> findAllByTag(String city);
 }

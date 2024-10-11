@@ -39,6 +39,4 @@ public class CityServiceTest {
         assertEquals(3, actualResult.size());
         assertEquals("Szkoła Podstawowa nr 10", actualResult.get(1).name());
     }
-
-
 }
