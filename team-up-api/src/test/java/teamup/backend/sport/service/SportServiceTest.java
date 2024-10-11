@@ -16,6 +16,7 @@ import teamup.backend.sport.repository.SportRepository;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
@@ -36,7 +37,10 @@ public class SportServiceTest {
     void getAllSports() {
         Mockito.when(mockedSportRepository.findAll()).thenReturn(List.of(MockedSportRepository.createNewSport()));
         List<SportDto> actualResult = sportService.getAllSports();
-        assertEquals(1, actualResult.size());
-        assertEquals(SportCode.VOLLEYBALL, actualResult.getFirst().code());
+        assertAll(
+                "Grouped assertions getAllSports()",
+                () -> assertEquals(1, actualResult.size()),
+                () -> assertEquals(SportCode.VOLLEYBALL, actualResult.getFirst().code())
+        );
     }
 }

@@ -7,8 +7,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.jdbc.Sql;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 @ActiveProfiles("test")
@@ -22,8 +21,12 @@ public class CityRepositoryTest {
     public void whenFindAllByTag_thenReturnListOf3Cities() {
         var actualResult = cityRepository.findAllByTag("War");
         System.out.println("actualResult = " + actualResult);
-        assertEquals(actualResult.size(), 2);
-        assertTrue(actualResult.getLast().getCityNames().containsValue("Warszawa"));
-        assertTrue(actualResult.getFirst().getCityNames().containsValue("Warka"));
+        assertAll(
+                "Grouped assertions findAllByTag()",
+                () -> assertEquals(actualResult.size(), 2),
+                () -> assertTrue(actualResult.getLast().getCityNames().containsValue("Warszawa")),
+                () -> assertTrue(actualResult.getFirst().getCityNames().containsValue("Warka"))
+        );
+
     }
 }

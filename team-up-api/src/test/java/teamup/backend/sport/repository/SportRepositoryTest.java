@@ -11,6 +11,7 @@ import teamup.backend.sport.model.Sport;
 import teamup.backend.sport.model.SportCode;
 
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DataJpaTest
@@ -29,7 +30,10 @@ public class SportRepositoryTest {
     @Sql("/test-data.sql")
     void shouldReturnListOfSports() {
         var actualResult = sportRepository.findAll();
-        assertEquals(1, actualResult.size());
-        assertEquals(SportCode.VOLLEYBALL, actualResult.getFirst().getCode());
+        assertAll(
+                "Grouped assertions findAll()",
+                () -> assertEquals(1, actualResult.size()),
+                () -> assertEquals(SportCode.VOLLEYBALL, actualResult.getFirst().getCode())
+        );
     }
 }
