@@ -1,6 +1,7 @@
 package teamup.backend.sport.controller;
 
 import teamup.backend.sport.dtos.SportDto;
+import teamup.backend.sport.dtos.SportListDto;
 import teamup.backend.sport.model.SportCode;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.UUID;
 
 
 public class MockedSportController {
-    public static List<SportDto> createMockedListOfSports(){
+    public static SportListDto createMockedListOfSports(){
         List<SportDto> lisOfSports = new ArrayList<SportDto>();
         lisOfSports.add(new SportDto(UUID.fromString("a59ccc25-787b-4de4-9ad3-e1b281859aab"),
                 SportCode.VOLLEYBALL,
@@ -20,6 +21,6 @@ public class MockedSportController {
         lisOfSports.add(new SportDto(UUID.fromString("d785cabf-cb1b-4fd7-9a7d-88610f16b2fd"),
                 SportCode.HOCKEY,
                 "hockey.svg"));
-        return lisOfSports;
+        return new SportListDto(lisOfSports);
     }
 }
