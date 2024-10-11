@@ -1,6 +1,5 @@
 package teamup.backend.sport.dtos;
 
-import teamup.backend.sport.model.Sport;
 
 import java.util.List;
 
