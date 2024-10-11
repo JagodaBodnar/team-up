@@ -2,11 +2,10 @@ package teamup.backend.city.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import teamup.backend.city.dto.CityDto;
+import teamup.backend.city.dto.CityListDto;
 import teamup.backend.city.service.CityService;
-import teamup.backend.location.dto.LocationDto;
+import teamup.backend.location.dto.LocationListDto;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -20,12 +19,12 @@ public class CityController {
     }
 
     @GetMapping
-    public ResponseEntity<List<CityDto>> findAllCities(@RequestParam String city, @RequestParam String language) {
-        return ResponseEntity.ok(cityService.getAllCities(city, language));
+    public ResponseEntity<CityListDto> findAllCities(@RequestParam String city, @RequestParam String language) {
+        return ResponseEntity.ok(new CityListDto(cityService.getAllCities(city, language)));
     }
 
     @GetMapping("/{id}/locations")
-    public ResponseEntity<List<LocationDto>> findAllLocations(@PathVariable UUID id) {
-        return ResponseEntity.ok(cityService.getLocations(id));
+    public ResponseEntity<LocationListDto> findAllLocations(@PathVariable UUID id) {
+        return ResponseEntity.ok(new LocationListDto(cityService.getLocations(id)));
     }
 }

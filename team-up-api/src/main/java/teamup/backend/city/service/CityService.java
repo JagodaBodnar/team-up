@@ -18,7 +18,7 @@ public class CityService {
 
 
     public List<CityDto> getAllCities(String city, String language) {
-        return cityRepository.findAllByTag(city)
+         return cityRepository.findAllByTag(city)
                 .stream()
                 .map(el-> CityDto.toCityDto(el, language))
                 .toList();

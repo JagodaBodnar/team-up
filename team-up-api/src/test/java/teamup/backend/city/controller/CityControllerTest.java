@@ -39,10 +39,10 @@ public class CityControllerTest {
                         .param("city", "War"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].name").value("Warszawa"))
-                .andExpect(jsonPath("$[0].country").value("PL"))
-                .andExpect(jsonPath("$[1].name").value("Warka"))
-                .andExpect(jsonPath("$.length()").value(2));
+                .andExpect(jsonPath("$.cityDtoList[0].name").value("Warszawa"))
+                .andExpect(jsonPath("$.cityDtoList[0].country").value("PL"))
+                .andExpect(jsonPath("$.cityDtoList[1].name").value("Warka"))
+                .andExpect(jsonPath("$.cityDtoList.length()").value(2));
 
     }
 
@@ -54,10 +54,9 @@ public class CityControllerTest {
         mockMvc.perform(get("/api/cities/12d96e44-a623-4e7e-aced-25422bbc0938/locations"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].name").value("Centrum Sportowe AZOTY"))
-                .andExpect(jsonPath("$[1].id").value("d2a5cf2e-c9e7-4ab9-959c-3bb990572b98"))
-                .andExpect(jsonPath("$[2].name").value("Hala sportowa Warszawka"))
-                .andExpect(jsonPath("$.length()").value(3));
-
+                .andExpect(jsonPath("$.locationDtoList[0].name").value("Centrum Sportowe AZOTY"))
+                .andExpect(jsonPath("$.locationDtoList[1].id").value("d2a5cf2e-c9e7-4ab9-959c-3bb990572b98"))
+                .andExpect(jsonPath("$.locationDtoList[2].name").value("Hala sportowa Warszawka"))
+                .andExpect(jsonPath("$.locationDtoList.length()").value(3));
     }
 }
