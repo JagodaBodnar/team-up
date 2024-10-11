@@ -12,7 +12,6 @@ import teamup.backend.sport.service.SportService;
 @RestController
 @RequestMapping("/api/sports")
 @RequiredArgsConstructor
-@CrossOrigin
 public class SportController {
     private final SportService sportService;
 

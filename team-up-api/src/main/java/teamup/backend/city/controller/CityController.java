@@ -1,5 +1,6 @@
 package teamup.backend.city.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import teamup.backend.city.dto.CityListDto;
@@ -10,13 +11,9 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/cities")
-@CrossOrigin
+@RequiredArgsConstructor
 public class CityController {
     private final CityService cityService;
-
-    public CityController(CityService cityService){
-        this.cityService = cityService;
-    }
 
     @GetMapping
     public ResponseEntity<CityListDto> findAllCities(@RequestParam String city, @RequestParam String language) {
